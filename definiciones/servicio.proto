@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+message TipoMedicamento {
+    string tipo = 1;
+}
+
+message Medicamento {
+    string codigoAlfabetico = 1;
+    int32 codigoNumerico = 2;
+    int32 digitoVerificador = 3;
+    string nombre = 4;
+    string droga = 5;
+    TipoMedicamento tipo = 6;
+}
+
+message ListaMedicamentos {
+    repeated Medicamento medicamentos = 1;
+}
+
+message Confirmacion {
+    bool confirmacion = 1;
+}
+
+message Nulo {
+}
+
+service LaboratorioFarmaceutico {
+    rpc Listo(Nulo) returns (Nulo);
+    rpc AltaTipoMedicamento (TipoMedicamento) returns (Confirmacion);
+    rpc BajaTipoMedicamento (TipoMedicamento) returns (Confirmacion);
+    rpc AltaMedicamento (Medicamento) returns (Confirmacion);
+    rpc TraerMedicamentos (Nulo) returns (ListaMedicamentos);
+} 
