@@ -1,31 +1,43 @@
-Instalar Python:
+# BE-RPC-Distribuidos
+
+### Instalar Python
+
 https://www.python.org/downloads/
 
-Abrir el proyecto con VSC
+### Abrir el proyecto con VSC
 
-Ir a la ruta del servidor:
-cd servidor/
+### Ir a la ruta del servidor
 
-Instalar pip:
-py -m ensurepip --upgrade
+_cd servidor/_
 
-Actualizar pip:
-python -m pip install --upgrade pip
+### Instalar pip
 
-Crear virtualenv:
-virtualenv venv
+_py -m ensurepip --upgrade_
 
-Activar scripts:
-source venv/Scripts/activate
+### Actualizar pip
 
-Instalar grpcio:
-pip install grpcio
+_python -m pip install --upgrade pip_
 
-Instalar grpcio-tools:
-pip install grpcio-tools
+### Crear virtualenv
 
-Generar servidor:
-python -m grpc_tools.protoc -I../definiciones --python_out=. --grpc_python_out=. ../definiciones/servicio.proto
+_virtualenv venv_
 
-Correr servidor:
-python ./servidor.py
+### Activar scripts
+
+_source venv/Scripts/activate_
+
+### Instalar grpcio
+
+_pip install grpcio_
+
+### Instalar grpcio-tools
+
+_pip install grpcio-tools_
+
+### Generar servidor
+
+_python -m grpc_tools.protoc -I../definiciones --python_out=. --grpc_python_out=. ../definiciones/servicio.proto_
+
+### Correr servidor
+
+_python ./servidor.py_
