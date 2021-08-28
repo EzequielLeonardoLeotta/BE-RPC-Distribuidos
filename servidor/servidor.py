@@ -11,15 +11,15 @@ class ServicioLaboratorioFarmaceutico(LaboratorioFarmaceuticoServicer):
     
     def AltaTipoMedicamento(self, request, context):
         print(f"Alta de Tipo de Medicamento: {request.tipo}")
-        return Confirmacion(True)
+        return Confirmacion("Ok")
 
     def BajaTipoMedicamento(self, request, context):
         print(f"Baja de Tipo de Medicamento: {request.tipo}")
-        return Confirmacion(True)
+        return Confirmacion("Ok")
     
     def AltaMedicamento(self, request, context):
         print(f"Alta de de Medicamento: {request.nombre}")
-        return Confirmacion(True)
+        return Confirmacion("Ok")
     
     def TraerMedicamentos(self, request, context):
         print(f"Lista de Medicamentos:")

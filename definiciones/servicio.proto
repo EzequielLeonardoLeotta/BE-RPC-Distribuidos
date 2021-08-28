@@ -18,7 +18,7 @@ message ListaMedicamentos {
 }
 
 message Confirmacion {
-    bool confirmacion = 1;
+    string confirmacion = 1;
 }
 
 message Nulo {

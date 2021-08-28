@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0eservicio.proto\"\x1f\n\x0fTipoMedicamento\x12\x0c\n\x04tipo\x18\x01 \x01(\t\"\x99\x01\n\x0bMedicamento\x12\x18\n\x10\x63odigoAlfabetico\x18\x01 \x01(\t\x12\x16\n\x0e\x63odigoNumerico\x18\x02 \x01(\x05\x12\x19\n\x11\x64igitoVerificador\x18\x03 \x01(\x05\x12\x0e\n\x06nombre\x18\x04 \x01(\t\x12\r\n\x05\x64roga\x18\x05 \x01(\t\x12\x1e\n\x04tipo\x18\x06 \x01(\x0b\x32\x10.TipoMedicamento\"7\n\x11ListaMedicamentos\x12\"\n\x0cmedicamentos\x18\x01 \x03(\x0b\x32\x0c.Medicamento\"$\n\x0c\x43onfirmacion\x12\x14\n\x0c\x63onfirmacion\x18\x01 \x01(\x08\"\x06\n\x04Nulo2\x80\x02\n\x17LaboratorioFarmaceutico\x12\x15\n\x05Listo\x12\x05.Nulo\x1a\x05.Nulo\x12\x36\n\x13\x41ltaTipoMedicamento\x12\x10.TipoMedicamento\x1a\r.Confirmacion\x12\x36\n\x13\x42\x61jaTipoMedicamento\x12\x10.TipoMedicamento\x1a\r.Confirmacion\x12.\n\x0f\x41ltaMedicamento\x12\x0c.Medicamento\x1a\r.Confirmacion\x12.\n\x11TraerMedicamentos\x12\x05.Nulo\x1a\x12.ListaMedicamentosb\x06proto3'
+  serialized_pb=b'\n\x0eservicio.proto\"\x1f\n\x0fTipoMedicamento\x12\x0c\n\x04tipo\x18\x01 \x01(\t\"\x99\x01\n\x0bMedicamento\x12\x18\n\x10\x63odigoAlfabetico\x18\x01 \x01(\t\x12\x16\n\x0e\x63odigoNumerico\x18\x02 \x01(\x05\x12\x19\n\x11\x64igitoVerificador\x18\x03 \x01(\x05\x12\x0e\n\x06nombre\x18\x04 \x01(\t\x12\r\n\x05\x64roga\x18\x05 \x01(\t\x12\x1e\n\x04tipo\x18\x06 \x01(\x0b\x32\x10.TipoMedicamento\"7\n\x11ListaMedicamentos\x12\"\n\x0cmedicamentos\x18\x01 \x03(\x0b\x32\x0c.Medicamento\"$\n\x0c\x43onfirmacion\x12\x14\n\x0c\x63onfirmacion\x18\x01 \x01(\t\"\x06\n\x04Nulo2\x80\x02\n\x17LaboratorioFarmaceutico\x12\x15\n\x05Listo\x12\x05.Nulo\x1a\x05.Nulo\x12\x36\n\x13\x41ltaTipoMedicamento\x12\x10.TipoMedicamento\x1a\r.Confirmacion\x12\x36\n\x13\x42\x61jaTipoMedicamento\x12\x10.TipoMedicamento\x1a\r.Confirmacion\x12.\n\x0f\x41ltaMedicamento\x12\x0c.Medicamento\x1a\r.Confirmacion\x12.\n\x11TraerMedicamentos\x12\x05.Nulo\x1a\x12.ListaMedicamentosb\x06proto3'
 )
 
 
@@ -166,8 +166,8 @@ _CONFIRMACION = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='confirmacion', full_name='Confirmacion.confirmacion', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
