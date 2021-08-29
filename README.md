@@ -44,7 +44,25 @@ _python -m grpc_tools.protoc -I../definiciones --python_out=. --grpc_python_out=
 
 _python ./servidor.py_
 
-## Parte 2: .Net
+## Parte 2: MySQL
+
+### Instalar MySQL Community Server y Workbrench
+
+https://dev.mysql.com/downloads/mysql/
+
+### Instalar el conector de python
+
+https://dev.mysql.com/downloads/connector/python/
+
+### Ir a la ruta database
+
+_cd ../database_
+
+### Correr el script para la creacion de la base de datos y tablas
+
+_python ./database.py_
+
+## Parte 3: .Net
 
 ### Instalar el SDK de Net 5.0
 
