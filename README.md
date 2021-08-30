@@ -68,10 +68,6 @@ _python ./database.py_
 
 https://dotnet.microsoft.com/download
 
-### Instalar grpc
-
-_gem install grpc_
-
 ### Ir a la ruta del cliente
 
 _cd ../cliente_
@@ -109,3 +105,7 @@ _python ./servidor.py_
 ### Correr el cliente
 
 _dotnet run_
+
+### Correr script de MySQL
+
+_python ./database.py_

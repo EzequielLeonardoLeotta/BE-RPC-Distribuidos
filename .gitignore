@@ -1,2 +1,5 @@
 cliente/obj/
 cliente/bin/
+
+servidor/venv/
+servidor/__pycache__/

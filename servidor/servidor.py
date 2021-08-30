@@ -4,13 +4,28 @@ from servicio_pb2 import Confirmacion, ListaMedicamentos
 import grpc
 from concurrent import futures
 
+import mysql.connector as mysql
+
+db = mysql.connect(
+    host = "localhost",
+    user = "root",
+    passwd = "root",
+    database = "laboratorio"
+)
+
+cursor = db.cursor()
+
 class ServicioLaboratorioFarmaceutico(LaboratorioFarmaceuticoServicer):
     
     def Listo(self, request, context):
         return request
     
     def AltaTipoMedicamento(self, request, context):
-        print(f"Alta de Tipo de Medicamento: {request.tipo}")
+        tipo = request.tipo
+        query = "INSERT INTO tipoMedicamento (tipo) VALUES ('{0}')".format(tipo)
+        cursor.execute(query)
+        db.commit()
+        print(f"Alta de Tipo de Medicamento: {tipo}")
         return Confirmacion("Ok")
 
     def BajaTipoMedicamento(self, request, context):
