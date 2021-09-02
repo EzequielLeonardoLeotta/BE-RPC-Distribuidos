@@ -10,7 +10,7 @@ message Medicamento {
     int32 digitoVerificador = 3;
     string nombre = 4;
     string droga = 5;
-    TipoMedicamento tipo = 6;
+    int32 tipoMedicamento = 6;
 }
 
 message ListaMedicamentos {

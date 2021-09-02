@@ -18,6 +18,6 @@ db = mysql.connect(
 
 cursor = db.cursor()
 cursor.execute("CREATE TABLE IF NOT EXISTS tipoMedicamento (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, tipo VARCHAR(50) NOT NULL, activo BOOLEAN DEFAULT 1)")
-cursor.execute("CREATE TABLE IF NOT EXISTS medicamento (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, codigoAlfabetico VARCHAR(3) NOT NULL, codigoNumerico INT NOT NULL, codigoVerificador INT NOT NULL, nombre VARCHAR(50) NOT NULL, droga VARCHAR(50) NOT NULL, tipoMedicamento INT NOT NULL, FOREIGN KEY (tipoMedicamento) REFERENCES tipoMedicamento (id))")
+cursor.execute("CREATE TABLE IF NOT EXISTS medicamento (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, codigoAlfabetico VARCHAR(3) NOT NULL, codigoNumerico INT NOT NULL, digitoVerificador INT NOT NULL, nombre VARCHAR(50) NOT NULL, droga VARCHAR(50) NOT NULL, tipoMedicamento INT NOT NULL, FOREIGN KEY (tipoMedicamento) REFERENCES tipoMedicamento (id))")
 
 print("El esquema laboratorio se ha creado correctamente!")

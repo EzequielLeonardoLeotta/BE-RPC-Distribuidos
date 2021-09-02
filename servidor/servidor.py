@@ -29,10 +29,18 @@ class ServicioLaboratorioFarmaceutico(LaboratorioFarmaceuticoServicer):
         return Confirmacion("Ok")
 
     def BajaTipoMedicamento(self, request, context):
-        print(f"Baja de Tipo de Medicamento: {request.tipo}")
+        tipo = request.tipo
+        query = "UPDATE tipoMedicamento SET activo = 0 WHERE tipo = ('{0}')".format(tipo)
+        cursor.execute(query)
+        db.commit()
+        print(f"Baja de Tipo de Medicamento: {tipo}")
         return Confirmacion("Ok")
     
     def AltaMedicamento(self, request, context):
+        query = "INSERT INTO medicamento (codigoAlfabetico, codigoNumerico, digitoVerificador, nombre, droga, tipoMedicamento) VALUES (%s, %s, %s, %s, %s, %s)"
+        values = (request.codigoAlfabetico, request.codigoNumerico, request.digitoVerificador, request.nombre, request.droga, request.tipoMedicamento)
+        cursor.execute(query, values)
+        db.commit()
         print(f"Alta de de Medicamento: {request.nombre}")
         return Confirmacion("Ok")
     

@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0eservicio.proto\"\x1f\n\x0fTipoMedicamento\x12\x0c\n\x04tipo\x18\x01 \x01(\t\"\x99\x01\n\x0bMedicamento\x12\x18\n\x10\x63odigoAlfabetico\x18\x01 \x01(\t\x12\x16\n\x0e\x63odigoNumerico\x18\x02 \x01(\x05\x12\x19\n\x11\x64igitoVerificador\x18\x03 \x01(\x05\x12\x0e\n\x06nombre\x18\x04 \x01(\t\x12\r\n\x05\x64roga\x18\x05 \x01(\t\x12\x1e\n\x04tipo\x18\x06 \x01(\x0b\x32\x10.TipoMedicamento\"7\n\x11ListaMedicamentos\x12\"\n\x0cmedicamentos\x18\x01 \x03(\x0b\x32\x0c.Medicamento\"$\n\x0c\x43onfirmacion\x12\x14\n\x0c\x63onfirmacion\x18\x01 \x01(\t\"\x06\n\x04Nulo2\x80\x02\n\x17LaboratorioFarmaceutico\x12\x15\n\x05Listo\x12\x05.Nulo\x1a\x05.Nulo\x12\x36\n\x13\x41ltaTipoMedicamento\x12\x10.TipoMedicamento\x1a\r.Confirmacion\x12\x36\n\x13\x42\x61jaTipoMedicamento\x12\x10.TipoMedicamento\x1a\r.Confirmacion\x12.\n\x0f\x41ltaMedicamento\x12\x0c.Medicamento\x1a\r.Confirmacion\x12.\n\x11TraerMedicamentos\x12\x05.Nulo\x1a\x12.ListaMedicamentosb\x06proto3'
+  serialized_pb=b'\n\x0eservicio.proto\"\x1f\n\x0fTipoMedicamento\x12\x0c\n\x04tipo\x18\x01 \x01(\t\"\x92\x01\n\x0bMedicamento\x12\x18\n\x10\x63odigoAlfabetico\x18\x01 \x01(\t\x12\x16\n\x0e\x63odigoNumerico\x18\x02 \x01(\x05\x12\x19\n\x11\x64igitoVerificador\x18\x03 \x01(\x05\x12\x0e\n\x06nombre\x18\x04 \x01(\t\x12\r\n\x05\x64roga\x18\x05 \x01(\t\x12\x17\n\x0ftipoMedicamento\x18\x06 \x01(\x05\"7\n\x11ListaMedicamentos\x12\"\n\x0cmedicamentos\x18\x01 \x03(\x0b\x32\x0c.Medicamento\"$\n\x0c\x43onfirmacion\x12\x14\n\x0c\x63onfirmacion\x18\x01 \x01(\t\"\x06\n\x04Nulo2\x80\x02\n\x17LaboratorioFarmaceutico\x12\x15\n\x05Listo\x12\x05.Nulo\x1a\x05.Nulo\x12\x36\n\x13\x41ltaTipoMedicamento\x12\x10.TipoMedicamento\x1a\r.Confirmacion\x12\x36\n\x13\x42\x61jaTipoMedicamento\x12\x10.TipoMedicamento\x1a\r.Confirmacion\x12.\n\x0f\x41ltaMedicamento\x12\x0c.Medicamento\x1a\r.Confirmacion\x12.\n\x11TraerMedicamentos\x12\x05.Nulo\x1a\x12.ListaMedicamentosb\x06proto3'
 )
 
 
@@ -101,9 +101,9 @@ _MEDICAMENTO = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='tipo', full_name='Medicamento.tipo', index=5,
-      number=6, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='tipoMedicamento', full_name='Medicamento.tipoMedicamento', index=5,
+      number=6, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -120,7 +120,7 @@ _MEDICAMENTO = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=52,
-  serialized_end=205,
+  serialized_end=198,
 )
 
 
@@ -151,8 +151,8 @@ _LISTAMEDICAMENTOS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=207,
-  serialized_end=262,
+  serialized_start=200,
+  serialized_end=255,
 )
 
 
@@ -183,8 +183,8 @@ _CONFIRMACION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=264,
-  serialized_end=300,
+  serialized_start=257,
+  serialized_end=293,
 )
 
 
@@ -208,11 +208,10 @@ _NULO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=302,
-  serialized_end=308,
+  serialized_start=295,
+  serialized_end=301,
 )
 
-_MEDICAMENTO.fields_by_name['tipo'].message_type = _TIPOMEDICAMENTO
 _LISTAMEDICAMENTOS.fields_by_name['medicamentos'].message_type = _MEDICAMENTO
 DESCRIPTOR.message_types_by_name['TipoMedicamento'] = _TIPOMEDICAMENTO
 DESCRIPTOR.message_types_by_name['Medicamento'] = _MEDICAMENTO
@@ -265,8 +264,8 @@ _LABORATORIOFARMACEUTICO = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=311,
-  serialized_end=567,
+  serialized_start=304,
+  serialized_end=560,
   methods=[
   _descriptor.MethodDescriptor(
     name='Listo',
