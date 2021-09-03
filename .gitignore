@@ -3,3 +3,5 @@ cliente/bin/
 
 servidor/venv/
 servidor/__pycache__/
+servidor/servicio_pb2_grpc.py
+servidor/servicio_pb2.py

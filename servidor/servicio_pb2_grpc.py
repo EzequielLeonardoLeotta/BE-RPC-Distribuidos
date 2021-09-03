@@ -22,22 +22,27 @@ class LaboratorioFarmaceuticoStub(object):
         self.AltaTipoMedicamento = channel.unary_unary(
                 '/LaboratorioFarmaceutico/AltaTipoMedicamento',
                 request_serializer=servicio__pb2.TipoMedicamento.SerializeToString,
-                response_deserializer=servicio__pb2.Confirmacion.FromString,
+                response_deserializer=servicio__pb2.Response.FromString,
                 )
         self.BajaTipoMedicamento = channel.unary_unary(
                 '/LaboratorioFarmaceutico/BajaTipoMedicamento',
                 request_serializer=servicio__pb2.TipoMedicamento.SerializeToString,
-                response_deserializer=servicio__pb2.Confirmacion.FromString,
+                response_deserializer=servicio__pb2.Response.FromString,
                 )
         self.AltaMedicamento = channel.unary_unary(
                 '/LaboratorioFarmaceutico/AltaMedicamento',
                 request_serializer=servicio__pb2.Medicamento.SerializeToString,
-                response_deserializer=servicio__pb2.Confirmacion.FromString,
+                response_deserializer=servicio__pb2.Response.FromString,
                 )
-        self.TraerMedicamentos = channel.unary_unary(
-                '/LaboratorioFarmaceutico/TraerMedicamentos',
+        self.TraerAerosoles = channel.unary_unary(
+                '/LaboratorioFarmaceutico/TraerAerosoles',
                 request_serializer=servicio__pb2.Nulo.SerializeToString,
-                response_deserializer=servicio__pb2.ListaMedicamentos.FromString,
+                response_deserializer=servicio__pb2.Response.FromString,
+                )
+        self.TraerMedicamenosConA = channel.unary_unary(
+                '/LaboratorioFarmaceutico/TraerMedicamenosConA',
+                request_serializer=servicio__pb2.Nulo.SerializeToString,
+                response_deserializer=servicio__pb2.Response.FromString,
                 )
 
 
@@ -68,7 +73,13 @@ class LaboratorioFarmaceuticoServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TraerMedicamentos(self, request, context):
+    def TraerAerosoles(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TraerMedicamenosConA(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -85,22 +96,27 @@ def add_LaboratorioFarmaceuticoServicer_to_server(servicer, server):
             'AltaTipoMedicamento': grpc.unary_unary_rpc_method_handler(
                     servicer.AltaTipoMedicamento,
                     request_deserializer=servicio__pb2.TipoMedicamento.FromString,
-                    response_serializer=servicio__pb2.Confirmacion.SerializeToString,
+                    response_serializer=servicio__pb2.Response.SerializeToString,
             ),
             'BajaTipoMedicamento': grpc.unary_unary_rpc_method_handler(
                     servicer.BajaTipoMedicamento,
                     request_deserializer=servicio__pb2.TipoMedicamento.FromString,
-                    response_serializer=servicio__pb2.Confirmacion.SerializeToString,
+                    response_serializer=servicio__pb2.Response.SerializeToString,
             ),
             'AltaMedicamento': grpc.unary_unary_rpc_method_handler(
                     servicer.AltaMedicamento,
                     request_deserializer=servicio__pb2.Medicamento.FromString,
-                    response_serializer=servicio__pb2.Confirmacion.SerializeToString,
+                    response_serializer=servicio__pb2.Response.SerializeToString,
             ),
-            'TraerMedicamentos': grpc.unary_unary_rpc_method_handler(
-                    servicer.TraerMedicamentos,
+            'TraerAerosoles': grpc.unary_unary_rpc_method_handler(
+                    servicer.TraerAerosoles,
                     request_deserializer=servicio__pb2.Nulo.FromString,
-                    response_serializer=servicio__pb2.ListaMedicamentos.SerializeToString,
+                    response_serializer=servicio__pb2.Response.SerializeToString,
+            ),
+            'TraerMedicamenosConA': grpc.unary_unary_rpc_method_handler(
+                    servicer.TraerMedicamenosConA,
+                    request_deserializer=servicio__pb2.Nulo.FromString,
+                    response_serializer=servicio__pb2.Response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -142,7 +158,7 @@ class LaboratorioFarmaceutico(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/LaboratorioFarmaceutico/AltaTipoMedicamento',
             servicio__pb2.TipoMedicamento.SerializeToString,
-            servicio__pb2.Confirmacion.FromString,
+            servicio__pb2.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -159,7 +175,7 @@ class LaboratorioFarmaceutico(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/LaboratorioFarmaceutico/BajaTipoMedicamento',
             servicio__pb2.TipoMedicamento.SerializeToString,
-            servicio__pb2.Confirmacion.FromString,
+            servicio__pb2.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -176,12 +192,12 @@ class LaboratorioFarmaceutico(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/LaboratorioFarmaceutico/AltaMedicamento',
             servicio__pb2.Medicamento.SerializeToString,
-            servicio__pb2.Confirmacion.FromString,
+            servicio__pb2.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def TraerMedicamentos(request,
+    def TraerAerosoles(request,
             target,
             options=(),
             channel_credentials=None,
@@ -191,8 +207,25 @@ class LaboratorioFarmaceutico(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/LaboratorioFarmaceutico/TraerMedicamentos',
+        return grpc.experimental.unary_unary(request, target, '/LaboratorioFarmaceutico/TraerAerosoles',
             servicio__pb2.Nulo.SerializeToString,
-            servicio__pb2.ListaMedicamentos.FromString,
+            servicio__pb2.Response.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TraerMedicamenosConA(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/LaboratorioFarmaceutico/TraerMedicamenosConA',
+            servicio__pb2.Nulo.SerializeToString,
+            servicio__pb2.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

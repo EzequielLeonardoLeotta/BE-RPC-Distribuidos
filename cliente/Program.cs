@@ -20,9 +20,31 @@ namespace cliente
                 Tipo = "aerosoles"
             };
 
-            var confirmacion = cliente.AltaTipoMedicamento(tipoMedicamento);
+            var medicamento = new Medicamento
+            {
+                CodigoAlfabetico = "AAA",
+                CodigoNumerico = 12345,
+                DigitoVerificador = 0,
+                Nombre = "Anginovag",
+                Droga = "Hidrocortisona",
+                TipoMedicamento = 1
+            };
 
-            Console.WriteLine($"Resultado: {confirmacion.Confirmacion_}");
+            var nulo = new Nulo();
+
+            try
+            {
+                // var response = cliente.AltaTipoMedicamento(tipoMedicamento);
+                // var response = cliente.BajaTipoMedicamento(tipoMedicamento);
+                var response = cliente.AltaMedicamento(medicamento);
+                // var response = cliente.TraerAerosoles(nulo);
+                // var response = cliente.TraerMedicamenosConA(nulo);
+                Console.WriteLine("Respuesta: " + response.Message);
+            }
+            catch (RpcException e)
+            {
+                throw e;
+            }
         }
     }
 }
