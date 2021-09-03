@@ -30,11 +30,15 @@ namespace cliente
                 TipoMedicamento = 1
             };
 
+            var nulo = new Nulo();
+
             try
             {
-                // var confirmacion = cliente.AltaTipoMedicamento(tipoMedicamento);
-                // var confirmacion = cliente.BajaTipoMedicamento(tipoMedicamento);
-                // var confirmacion = cliente.AltaMedicamento(medicamento);
+                var response = cliente.AltaTipoMedicamento(tipoMedicamento);
+                // var response = cliente.BajaTipoMedicamento(tipoMedicamento);
+                // var response = cliente.AltaMedicamento(medicamento);
+                // var response = cliente.TraerAerosoles(nulo);
+                Console.WriteLine("Respuesta: " + response.Message);
             }
             catch (RpcException e)
             {

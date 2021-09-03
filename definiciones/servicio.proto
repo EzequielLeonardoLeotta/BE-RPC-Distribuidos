@@ -13,12 +13,8 @@ message Medicamento {
     int32 tipoMedicamento = 6;
 }
 
-message ListaMedicamentos {
-    repeated Medicamento medicamentos = 1;
-}
-
-message Confirmacion {
-    string confirmacion = 1;
+message Response {
+    string message = 1;
 }
 
 message Nulo {
@@ -26,8 +22,9 @@ message Nulo {
 
 service LaboratorioFarmaceutico {
     rpc Listo(Nulo) returns (Nulo);
-    rpc AltaTipoMedicamento (TipoMedicamento) returns (Confirmacion);
-    rpc BajaTipoMedicamento (TipoMedicamento) returns (Confirmacion);
-    rpc AltaMedicamento (Medicamento) returns (Confirmacion);
-    rpc TraerMedicamentos (Nulo) returns (ListaMedicamentos);
+    rpc AltaTipoMedicamento (TipoMedicamento) returns (Response);
+    rpc BajaTipoMedicamento (TipoMedicamento) returns (Response);
+    rpc AltaMedicamento (Medicamento) returns (Response);
+    rpc TraerAerosoles (Nulo) returns (Response);
+    rpc TraerMedicamenosConA (Nulo) returns (Response);
 } 
