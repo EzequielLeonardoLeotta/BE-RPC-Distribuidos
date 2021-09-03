@@ -53,11 +53,20 @@ class ServicioLaboratorioFarmaceutico(LaboratorioFarmaceuticoServicer):
         except:
             print(f"Error al dar de baja el Tipo de Medicamento: {tipo}")
             return Response(message = "Error")
-
+    
     def AltaMedicamento(self, request, context):
         try:
+            #Genero digito verificador con procedimiento recursivo
+            codigoNumerico = request.codigoNumerico
+            digitoVerificador = GetDigitoVerificador(codigoNumerico)
+            longitud = len(str(digitoVerificador))
+            while (longitud > 1):
+                digitoVerificador = GetDigitoVerificador(digitoVerificador)
+                break
+
+            #Inserto el medicamento
             query = "INSERT INTO medicamento (codigoAlfabetico, codigoNumerico, digitoVerificador, nombre, droga, tipoMedicamento) VALUES (%s, %s, %s, %s, %s, %s)"
-            values = (request.codigoAlfabetico, request.codigoNumerico, request.digitoVerificador, request.nombre, request.droga, request.tipoMedicamento)
+            values = (request.codigoAlfabetico, request.codigoNumerico, digitoVerificador, request.nombre, request.droga, request.tipoMedicamento)
             cursor.execute(query, values)
             db.commit()
             print(f"Alta de de Medicamento: {request.nombre}")
@@ -94,7 +103,17 @@ class ServicioLaboratorioFarmaceutico(LaboratorioFarmaceuticoServicer):
         except:
             print(f"Error al traer Medicamentos que empiezan con A")
             return Response(message = "Error")
-    
+
+def GetDigitoVerificador(codigoNumerico):
+    stringNumber = str(codigoNumerico)
+    longitud = len(stringNumber)
+    suma = 0
+    i = 0
+    while(i != longitud):
+        suma += int(stringNumber[i])
+        i += 1
+    return suma
+
 def start():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     add_LaboratorioFarmaceuticoServicer_to_server(ServicioLaboratorioFarmaceutico(), server)

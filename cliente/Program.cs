@@ -24,7 +24,7 @@ namespace cliente
             {
                 CodigoAlfabetico = "AAA",
                 CodigoNumerico = 12345,
-                DigitoVerificador = 1,
+                DigitoVerificador = 0,
                 Nombre = "Anginovag",
                 Droga = "Hidrocortisona",
                 TipoMedicamento = 1
@@ -36,9 +36,9 @@ namespace cliente
             {
                 // var response = cliente.AltaTipoMedicamento(tipoMedicamento);
                 // var response = cliente.BajaTipoMedicamento(tipoMedicamento);
-                // var response = cliente.AltaMedicamento(medicamento);
+                var response = cliente.AltaMedicamento(medicamento);
                 // var response = cliente.TraerAerosoles(nulo);
-                var response = cliente.TraerMedicamenosConA(nulo);
+                // var response = cliente.TraerMedicamenosConA(nulo);
                 Console.WriteLine("Respuesta: " + response.Message);
             }
             catch (RpcException e)
