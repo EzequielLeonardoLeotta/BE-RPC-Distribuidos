@@ -34,10 +34,11 @@ namespace cliente
 
             try
             {
-                var response = cliente.AltaTipoMedicamento(tipoMedicamento);
+                // var response = cliente.AltaTipoMedicamento(tipoMedicamento);
                 // var response = cliente.BajaTipoMedicamento(tipoMedicamento);
                 // var response = cliente.AltaMedicamento(medicamento);
                 // var response = cliente.TraerAerosoles(nulo);
+                var response = cliente.TraerMedicamenosConA(nulo);
                 Console.WriteLine("Respuesta: " + response.Message);
             }
             catch (RpcException e)

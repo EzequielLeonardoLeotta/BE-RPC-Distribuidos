@@ -83,6 +83,17 @@ class ServicioLaboratorioFarmaceutico(LaboratorioFarmaceuticoServicer):
         except:
             print(f"Error al traer aerosoles")
             return Response(message = "Error")
+
+    def TraerMedicamenosConA(self, request, context):
+        try:
+            query = "SELECT * FROM tipoMedicamento WHERE tipo  LIKE 'a%'"
+            cursor.execute(query)
+            medicamentos = cursor.fetchall()
+            print(f"Traer Medicamentos que empiezan con A")
+            return Response(message = str(medicamentos))
+        except:
+            print(f"Error al traer Medicamentos que empiezan con A")
+            return Response(message = "Error")
     
 def start():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
