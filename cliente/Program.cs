@@ -32,14 +32,31 @@ namespace cliente
 
             var nulo = new Nulo();
 
+            string procedimiento = "TraerMedicamenosConA";
+
             try
             {
-                // var response = cliente.AltaTipoMedicamento(tipoMedicamento);
-                // var response = cliente.BajaTipoMedicamento(tipoMedicamento);
-                var response = cliente.AltaMedicamento(medicamento);
-                // var response = cliente.TraerAerosoles(nulo);
-                // var response = cliente.TraerMedicamenosConA(nulo);
-                Console.WriteLine("Respuesta: " + response.Message);
+                switch (procedimiento)
+                {
+                    case "AltaTipoMedicamento":
+                        Console.WriteLine("Respuesta: " + cliente.AltaTipoMedicamento(tipoMedicamento).Message);
+                        break;
+                    case "BajaTipoMedicamento":
+                        Console.WriteLine("Respuesta: " + cliente.BajaTipoMedicamento(tipoMedicamento).Message);
+                        break;
+                    case "AltaMedicamento":
+                        Console.WriteLine("Respuesta: " + cliente.AltaMedicamento(medicamento).Message);
+                        break;
+                    case "TraerAerosoles":
+                        Console.WriteLine("Respuesta: " + cliente.TraerAerosoles(nulo).Message);
+                        break;
+                    case "TraerMedicamenosConA":
+                        Console.WriteLine("Respuesta: " + cliente.TraerMedicamenosConA(nulo).Message);
+                        break;
+                    default: 
+                        Console.WriteLine("Error: no se puede llamar a un procedimiento inexistente");
+                        break;
+                }
             }
             catch (RpcException e)
             {

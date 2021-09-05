@@ -34,7 +34,7 @@ class ServicioLaboratorioFarmaceutico(LaboratorioFarmaceuticoServicer):
                 cursor.execute(query)
                 db.commit()
                 print(f"Alta de Tipo de Medicamento: {tipo}")
-                return Response(message = "Alta de Tipo de Medicamento: '{0}'".format(tipo))
+                return Response(message = "Alta de Tipo de Medicamento: {0}".format(tipo))
             else:
                 print(f"Error al dar de alta el Tipo de Medicamento: {tipo}, porque ya existe")
                 return Response(message = "Error: el tipo de medicamento ya existe")
@@ -49,7 +49,7 @@ class ServicioLaboratorioFarmaceutico(LaboratorioFarmaceuticoServicer):
             cursor.execute(query)
             db.commit()
             print(f"Baja de Tipo de Medicamento: {tipo}")
-            return Response(message = "Ok")
+            return Response(message = "Baja de Tipo de Medicamento: {0}".format(tipo))
         except:
             print(f"Error al dar de baja el Tipo de Medicamento: {tipo}")
             return Response(message = "Error")
@@ -66,11 +66,12 @@ class ServicioLaboratorioFarmaceutico(LaboratorioFarmaceuticoServicer):
 
             #Inserto el medicamento
             query = "INSERT INTO medicamento (codigoAlfabetico, codigoNumerico, digitoVerificador, nombre, droga, tipoMedicamento) VALUES (%s, %s, %s, %s, %s, %s)"
+            nombre = request.nombre
             values = (request.codigoAlfabetico, request.codigoNumerico, digitoVerificador, request.nombre, request.droga, request.tipoMedicamento)
             cursor.execute(query, values)
             db.commit()
-            print(f"Alta de de Medicamento: {request.nombre}")
-            return Response(message = "Ok")
+            print(f"Alta de de Medicamento: {nombre}")
+            return Response(message = "Alta de de Medicamento: {0}".format(nombre))
         except:
             print(f"Error al dar de alta el Medicamento: {request.nombre}")
             return Response(message = "Error")
