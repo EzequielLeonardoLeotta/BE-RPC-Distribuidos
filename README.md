@@ -20,6 +20,10 @@ _py -m ensurepip --upgrade_
 
 _python -m pip install --upgrade pip_
 
+### Instalar virtualenv
+
+_pip install virtualenv_
+
 ### Crear virtualenv
 
 _virtualenv venv_
@@ -39,6 +43,10 @@ _pip install grpcio-tools_
 ### Generar servidor
 
 _python -m grpc_tools.protoc -I../definiciones --python_out=. --grpc_python_out=. ../definiciones/servicio.proto_
+
+### Instalar mysql.connector
+
+_pip install mysql-connector-python_
 
 ### Correr el servidor
 
@@ -96,16 +104,15 @@ _dotnet build_
 
 _dotnet run_
 
-## Comandos para correr cliente y servidor
+## Comandos para correr cliente y servidor desde la carpeta ráiz del proyecto (BE-RPC-Distribuidos)
 
 ### Correr el servidor
 
-_python ./servidor.py_
+_cd servidor_
+_source venv/Scripts/activate_
+_py servidor.py_
 
 ### Correr el cliente
 
+_cd cliente_
 _dotnet run_
-
-### Correr script de MySQL
-
-_python ./database.py_
