@@ -60,7 +60,7 @@ namespace cliente
             }
             catch (RpcException e)
             {
-                throw e;
+                Console.WriteLine(e.Message + " " + e.StackTrace);
             }
         }
     }
