@@ -70,8 +70,8 @@ class ServicioLaboratorioFarmaceutico(LaboratorioFarmaceuticoServicer):
             values = (request.codigoAlfabetico, request.codigoNumerico, codigoVerificador, request.nombre, request.droga, request.tipoMedicamento)
             cursor.execute(query, values)
             db.commit()
-            print(f"Alta de de Medicamento: {nombre}")
-            return Response(message = "Alta de de Medicamento: {0}".format(nombre))
+            print(f"Alta de Medicamento: {nombre}")
+            return Response(message = "Alta de Medicamento: {0}".format(nombre))
         except:
             print(f"Error al dar de alta el Medicamento: \n{request}digito: {codigoVerificador}")
             return Response(message = "Error")
