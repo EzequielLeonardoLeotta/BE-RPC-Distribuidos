@@ -58,28 +58,28 @@ class ServicioLaboratorioFarmaceutico(LaboratorioFarmaceuticoServicer):
         try:
             #Genero digito verificador con procedimiento recursivo
             codigoNumerico = request.codigoNumerico
-            digitoVerificador = GetDigitoVerificador(codigoNumerico)
-            longitud = len(str(digitoVerificador))
+            codigoVerificador = GetDigitoVerificador(codigoNumerico)
+            longitud = len(str(codigoVerificador))
             while (longitud > 1):
-                digitoVerificador = GetDigitoVerificador(digitoVerificador)
+                codigoVerificador = GetDigitoVerificador(codigoVerificador)
                 break
 
             #Inserto el medicamento
-            query = "INSERT INTO medicamento (codigoAlfabetico, codigoNumerico, digitoVerificador, nombre, droga, tipoMedicamento) VALUES (%s, %s, %s, %s, %s, %s)"
+            query = "INSERT INTO medicamento (codigoAlfabetico, codigoNumerico, codigoVerificador, nombre, droga, tipoMedicamento) VALUES (%s, %s, %s, %s, %s, %s)"
             nombre = request.nombre
-            values = (request.codigoAlfabetico, request.codigoNumerico, digitoVerificador, request.nombre, request.droga, request.tipoMedicamento)
+            values = (request.codigoAlfabetico, request.codigoNumerico, codigoVerificador, request.nombre, request.droga, request.tipoMedicamento)
             cursor.execute(query, values)
             db.commit()
             print(f"Alta de de Medicamento: {nombre}")
             return Response(message = "Alta de de Medicamento: {0}".format(nombre))
         except:
-            print(f"Error al dar de alta el Medicamento: {request.nombre}")
+            print(f"Error al dar de alta el Medicamento: \n{request}digito: {codigoVerificador}")
             return Response(message = "Error")
         
     def TraerAerosoles(self, request, context):
         try:
             #Obtengo el id de aerosoles
-            queryGetIdAerosoles = "SELECT id FROM tipoMedicamento WHERE tipo = 'aerosoles'"
+            queryGetIdAerosoles = "SELECT id FROM tipoMedicamento WHERE tipo = 'aerosol'"
             cursor.execute(queryGetIdAerosoles)
             records = cursor.fetchall()
             idAerosoles = records[0][0]
@@ -96,7 +96,7 @@ class ServicioLaboratorioFarmaceutico(LaboratorioFarmaceuticoServicer):
 
     def TraerMedicamenosConA(self, request, context):
         try:
-            query = "SELECT * FROM tipoMedicamento WHERE tipo  LIKE 'a%'"
+            query = "SELECT * FROM medicamento WHERE nombre LIKE 'a%'"
             cursor.execute(query)
             medicamentos = cursor.fetchall()
             print(f"Traer Medicamentos que empiezan con A")
