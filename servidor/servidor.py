@@ -58,22 +58,22 @@ class ServicioLaboratorioFarmaceutico(LaboratorioFarmaceuticoServicer):
         try:
             #Genero digito verificador con procedimiento recursivo
             codigoNumerico = request.codigoNumerico
-            codigoVerificador = GetDigitoVerificador(codigoNumerico)
-            longitud = len(str(codigoVerificador))
+            digitoVerificador = GetDigitoVerificador(codigoNumerico)
+            longitud = len(str(digitoVerificador))
             while (longitud > 1):
-                codigoVerificador = GetDigitoVerificador(codigoVerificador)
+                digitoVerificador = GetDigitoVerificador(digitoVerificador)
                 break
 
             #Inserto el medicamento
-            query = "INSERT INTO medicamento (codigoAlfabetico, codigoNumerico, codigoVerificador, nombre, droga, tipoMedicamento) VALUES (%s, %s, %s, %s, %s, %s)"
+            query = "INSERT INTO medicamento (codigoAlfabetico, codigoNumerico, digitoVerificador, nombre, droga, tipoMedicamento) VALUES (%s, %s, %s, %s, %s, %s)"
             nombre = request.nombre
-            values = (request.codigoAlfabetico, request.codigoNumerico, codigoVerificador, request.nombre, request.droga, request.tipoMedicamento)
+            values = (request.codigoAlfabetico, request.codigoNumerico, request.digitoVerificador, request.nombre, request.droga, request.tipoMedicamento)
             cursor.execute(query, values)
             db.commit()
             print(f"Alta de Medicamento: {nombre}")
             return Response(message = "Alta de Medicamento: {0}".format(nombre))
         except:
-            print(f"Error al dar de alta el Medicamento: \n{request}digito: {codigoVerificador}")
+            print(f"Error al dar de alta el Medicamento: \n{request}digito: {digitoVerificador}")
             return Response(message = "Error")
         
     def TraerAerosoles(self, request, context):
