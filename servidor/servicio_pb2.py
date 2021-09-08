@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0eservicio.proto\"\x1f\n\x0fTipoMedicamento\x12\x0c\n\x04tipo\x18\x01 \x01(\t\"\x92\x01\n\x0bMedicamento\x12\x18\n\x10\x63odigoAlfabetico\x18\x01 \x01(\t\x12\x16\n\x0e\x63odigoNumerico\x18\x02 \x01(\x05\x12\x19\n\x11\x64igitoVerificador\x18\x03 \x01(\x05\x12\x0e\n\x06nombre\x18\x04 \x01(\t\x12\r\n\x05\x64roga\x18\x05 \x01(\t\x12\x17\n\x0ftipoMedicamento\x18\x06 \x01(\x05\"\x1b\n\x08Response\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x06\n\x04Nulo2\x92\x02\n\x17LaboratorioFarmaceutico\x12\x15\n\x05Listo\x12\x05.Nulo\x1a\x05.Nulo\x12\x32\n\x13\x41ltaTipoMedicamento\x12\x10.TipoMedicamento\x1a\t.Response\x12\x32\n\x13\x42\x61jaTipoMedicamento\x12\x10.TipoMedicamento\x1a\t.Response\x12*\n\x0f\x41ltaMedicamento\x12\x0c.Medicamento\x1a\t.Response\x12\"\n\x0eTraerAerosoles\x12\x05.Nulo\x1a\t.Response\x12(\n\x14TraerMedicamenosConA\x12\x05.Nulo\x1a\t.Responseb\x06proto3'
+  serialized_pb=b'\n\x0eservicio.proto\"\x1f\n\x0fTipoMedicamento\x12\x0c\n\x04tipo\x18\x01 \x01(\t\"\x92\x01\n\x0bMedicamento\x12\x18\n\x10\x63odigoAlfabetico\x18\x01 \x01(\t\x12\x16\n\x0e\x63odigoNumerico\x18\x02 \x01(\x05\x12\x19\n\x11\x64igitoVerificador\x18\x03 \x01(\x05\x12\x0e\n\x06nombre\x18\x04 \x01(\t\x12\r\n\x05\x64roga\x18\x05 \x01(\t\x12\x17\n\x0ftipoMedicamento\x18\x06 \x01(\x05\"\x1b\n\x08Response\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x06\n\x04Nulo2\xbe\x02\n\x17LaboratorioFarmaceutico\x12\x15\n\x05Listo\x12\x05.Nulo\x1a\x05.Nulo\x12\x32\n\x13\x41ltaTipoMedicamento\x12\x10.TipoMedicamento\x1a\t.Response\x12\x32\n\x13\x42\x61jaTipoMedicamento\x12\x10.TipoMedicamento\x1a\t.Response\x12*\n\x0f\x41ltaMedicamento\x12\x0c.Medicamento\x1a\t.Response\x12\"\n\x0eTraerAerosoles\x12\x05.Nulo\x1a\t.Response\x12(\n\x14TraerMedicamenosConA\x12\x05.Nulo\x1a\t.Response\x12*\n\x16TraerTiposMedicamentos\x12\x05.Nulo\x1a\t.Responseb\x06proto3'
 )
 
 
@@ -224,7 +224,7 @@ _LABORATORIOFARMACEUTICO = _descriptor.ServiceDescriptor(
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
   serialized_start=238,
-  serialized_end=512,
+  serialized_end=556,
   methods=[
   _descriptor.MethodDescriptor(
     name='Listo',
@@ -280,6 +280,16 @@ _LABORATORIOFARMACEUTICO = _descriptor.ServiceDescriptor(
     name='TraerMedicamenosConA',
     full_name='LaboratorioFarmaceutico.TraerMedicamenosConA',
     index=5,
+    containing_service=None,
+    input_type=_NULO,
+    output_type=_RESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='TraerTiposMedicamentos',
+    full_name='LaboratorioFarmaceutico.TraerTiposMedicamentos',
+    index=6,
     containing_service=None,
     input_type=_NULO,
     output_type=_RESPONSE,

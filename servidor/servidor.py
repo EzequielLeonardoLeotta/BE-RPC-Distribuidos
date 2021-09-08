@@ -105,6 +105,17 @@ class ServicioLaboratorioFarmaceutico(LaboratorioFarmaceuticoServicer):
             print(f"Error al traer Medicamentos que empiezan con A")
             return Response(message = "Error")
 
+    def TraerTiposMedicamentos(self, request, context):
+        try:
+            query = "SELECT * FROM tipoMedicamento"
+            cursor.execute(query)
+            tipos = cursor.fetchall()
+            print(f"Traer tipos de Medicamentos")
+            return Response(message = str(tipos))
+        except:
+            print(f"Error al traer tipos de Medicamentos")
+            return Response(message = "Error")
+
 def GetDigitoVerificador(codigoNumerico):
     stringNumber = str(codigoNumerico)
     longitud = len(stringNumber)
