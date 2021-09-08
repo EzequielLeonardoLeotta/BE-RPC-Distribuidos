@@ -32,7 +32,7 @@ namespace cliente
 
             var nulo = new Nulo();
 
-            string procedimiento = "TraerMedicamenosConA";
+            string procedimiento = "TraerTiposMedicamentos";
 
             try
             {
@@ -52,6 +52,9 @@ namespace cliente
                         break;
                     case "TraerMedicamenosConA":
                         Console.WriteLine("Respuesta: " + cliente.TraerMedicamenosConA(nulo).Message);
+                        break;
+                    case "TraerTiposMedicamentos":
+                        Console.WriteLine("Respuesta: " + cliente.TraerTiposMedicamentos(nulo).Message);
                         break;
                     default: 
                         Console.WriteLine("Error: no se puede llamar a un procedimiento inexistente");
