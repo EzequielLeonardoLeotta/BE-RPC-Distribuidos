@@ -107,7 +107,7 @@ class ServicioLaboratorioFarmaceutico(LaboratorioFarmaceuticoServicer):
 
     def TraerTiposMedicamentos(self, request, context):
         try:
-            query = "SELECT * FROM tipoMedicamento"
+            query = "SELECT * FROM tipoMedicamento where activo=1"
             cursor.execute(query)
             tipos = cursor.fetchall()
             print(f"Traer tipos de Medicamentos")
