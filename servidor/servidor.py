@@ -62,12 +62,12 @@ class ServicioLaboratorioFarmaceutico(LaboratorioFarmaceuticoServicer):
             longitud = len(str(digitoVerificador))
             while (longitud > 1):
                 digitoVerificador = GetDigitoVerificador(digitoVerificador)
-                break
+                longitud = len(str(digitoVerificador))
 
             #Inserto el medicamento
             query = "INSERT INTO medicamento (codigoAlfabetico, codigoNumerico, digitoVerificador, nombre, droga, tipoMedicamento) VALUES (%s, %s, %s, %s, %s, %s)"
             nombre = request.nombre
-            values = (request.codigoAlfabetico, request.codigoNumerico, request.digitoVerificador, request.nombre, request.droga, request.tipoMedicamento)
+            values = (request.codigoAlfabetico, request.codigoNumerico, digitoVerificador, request.nombre, request.droga, request.tipoMedicamento)
             cursor.execute(query, values)
             db.commit()
             print(f"Alta de Medicamento: {nombre}")
